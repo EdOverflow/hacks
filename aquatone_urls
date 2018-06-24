@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This script will fetch all the ports you are after and create clickable links.
+# Simply cd into the aquatone directory and pick any output folder. Then run
+# the script inside that folder (e.g. /root/aquatone/example.com/).
+# $ aquatone_urls <port>
+# $ aquatone_urls 80
+# http://example.com:80/
+# $ aquatone_urls 443
+# http://example.com:443/
+
+cat open_ports.txt | grep "$1" | sed -e 's/,.*//g' -e "s/$/:$1/g" -e 's/^/http:\/\//g' | sort | uniq
