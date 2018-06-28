@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Very light-weight GIT scraper that finds keywords in GIT logs.
+# Run this script as is inside of a GIT folder.
+
+keywords=(
+	"password"
+	"key"
+	"passwd"
+	"secret"
+)
+
+echo
+echo "Developers"
+echo "=========="
+if [[ $1 != "" ]]; then
+	git log --reflog --pretty="format:%aE" | sort | uniq | grep "$1"
+fi
+
+echo
+echo "Keywords"
+echo "========"
+for word in ${keywords[@]}; do
+	git log --reflog --pretty="format:- (%H) %b" | grep --color "$word"
+done
+
+echo
+echo "*** Done."
