@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Fingerprint target host for most frequent HTML classes, IDs, and links.
+
+if [[ $1 == "" ]]; then
+	echo "./fingerprint <host>";
+	exit 1;
+fi
+
+body=$(curl -Lks "$1")
+
+echo "Most frequent HTML classes."
+echo "==========================="
+echo $body | grep -Eoih class\=\"[^\"]*\" | sed -e 's/"//g' -e 's/class=//g' | tr " " "\n" | sort | uniq -c | sort -nr | head  -10
+echo
+
+echo "Most frequent HTML IDs."
+echo "======================="
+echo $body | grep -Eoih id\=\"[^\"]*\" | sed -e 's/"//g' -e 's/id=//g' | tr " " "\n" | sort | uniq -c | sort -nr | head  -10
+echo
+
+echo "Most frequent image."
+echo "===================="
+echo $body | grep -Eoih '<img[^>]*src="[^"]*[^>]*>' | grep -Po '(?<=src=")[^"]*' | sort | uniq -c | sort -nr | head  -10
+echo
+
+echo "Most frequent URL on the page."
+echo "=============================="
+echo $body | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq -c | sort -nr | head  -10
