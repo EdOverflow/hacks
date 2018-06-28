@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Find a public Google group for a particular host. 
+# Some of these groups contain sensitive information. 
+# The tool runs against a list of hosts and returns all public groups.
+
+if [[ $1 == "" ]]; then
+	echo "./googlegroups <list of hosts>";
+	exit 1;
+fi
+
+while read domain; do
+    if curl -LIs "https://groups.google.com/a/$domain" | grep "overview" > /dev/null; then
+        echo "[+] https://groups.google.com/a/$domain/forum/#!overview"
+    fi
+done < $1
