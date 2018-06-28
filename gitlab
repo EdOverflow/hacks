@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Look for GitLab instances on targets or belonging to the target. 
+# When you stumble across the GitLab login panel (/users/sign_in), navigate to `/explore`.
+# Once you get in, use the search function to find passwords, keys, etc. 
+# As described in https://twitter.com/EdOverflow/status/986214497965740032.
+
+if [[ $1 == "" ]]; then
+	echo "./gitlab <host>";
+	exit 1;
+fi
+
+if curl -LIs "http://$1/explore" | grep -i "gitlab" > /dev/null; then
+	result="http://$1/explore";
+	echo $result
+	echo "Projects are under http://$1/explore/projects"
+elif curl -LIs "http://gitlab.$1/explore" | grep -i "gitlab" > /dev/null; then
+	result="http://gitlab.$1/explore"
+	echo $result
+	echo "Projects are under http://gitlab.$1/explore/projects"
+elif curl -LIs "http://git.$1/explore" | grep -i "gitlab" > /dev/null; then
+	result="http://git.$1/explore"
+	echo $result
+	echo "Projects are under http://git.$1/explore/projects"
+elif curl -LIs "http://$1/gitlab/explore" | grep -i "gitlab" > /dev/null; then
+	result="http://$1/gitlab/explore"
+	echo $result
+	echo "Projects are under http://$1/gitlab/explore/projects"
+elif curl -LIs "http://$1/git/explore" | grep -i "gitlab" > /dev/null; then
+	result="http://$1/git/explore"
+	echo $result
+	echo "Projects are under http://$1/git/explore/projects"
+fi
