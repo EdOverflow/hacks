@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Run s3enum and then attempt to list files from the bucket.
+# Input:  ./buckets <wordlist> <target name>
+# Output: Spits out output from aws s3 ls s3://...
+# Dependencies:
+#	- https://github.com/koenrh/s3enum
+
+if [[ $1 == "" ]]; then
+	echo "./buckets <wordlist> <target name>";
+	exit 1;
+fi
+
+while read b; do 
+	echo "=== $b ===";
+	aws s3 ls s3://$b;
+	echo; 
+done < <(s3enum -w $1 -n $2)
