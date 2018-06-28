@@ -8,7 +8,7 @@
                        \/__/     \/__/     \/__/     \|__|     \/__/  
 ```
 
-Some random scripts. Just trying to be look the cool kids. Place all the scripts under `/usr/local/bin` and hack away.
+Some random scripts. Just trying to be like the cool kids. Place all the scripts under `/usr/local/bin` and hack away.
 
 ## Set-up oneliner
 
