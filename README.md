@@ -18,7 +18,7 @@ $ git clone git@github.com:EdOverflow/hacks.git && cp -R hacks/. /usr/local/bin/
 
 ## ⚠ Legal Disclaimer
 
-This project is made for educational and ethical testing purposes only. Usage of this tool for attacking targets without prior mutual consent is illegal. Developers assume no liability and are not responsible for any misuse or damage caused by this tool.
+This project is made for educational and ethical testing purposes only. Usage of this tool for attacking targets without prior mutual consent is illegal. Developers assume no liability and are not responsible for any misuse or damage caused by these scripts.
 
 ## Donations
 
