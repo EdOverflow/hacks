@@ -8,11 +8,11 @@
                            \/__/     \/__/     \/__/     \|__|     \/__/  
 
 Some random scripts. Just trying to be like the cool kids. Place all 
-the scripts under `/usr/local/bin` and hack away.
+the scripts under /usr/local/bin and hack away.
 
 Set-up one-liner
 
-This will clone this repository and then move all scripts to `/usr/local/bin`.
+This will clone this repository and then move all scripts to /usr/local/bin.
 
 	$ git clone git@github.com:EdOverflow/hacks.git \
 		&& cp -R hacks/. /usr/local/bin/ \
