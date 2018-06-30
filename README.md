@@ -12,6 +12,8 @@ Some random scripts. Just trying to be like the cool kids. Place all the scripts
 
 ## Set-up oneliner
 
+This will clone this repository and then move all scripts to `/usr/local/bin`.
+
 ```bash
 $ git clone git@github.com:EdOverflow/hacks.git && cp -R hacks/. /usr/local/bin/ && echo "You can delete the ./hacks/ folder now."
 ```
