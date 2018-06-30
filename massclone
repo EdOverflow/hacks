@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This script will mass-clone all repositories belonging
+# to a GitHub organisation.
+# Dependencies:
+# 	- https://github.com/tomnomnom/gron
+
+if [[ $1 == "" ]]; then
+	echo "./massclone <GitHub org name>"
+	exit 1
+fi
+
+mkdir $1 && cd $1
+git=$(curl -s "https://api.github.com/orgs/$2/repos?per_page=200&type=source" | gron | fgrep "clone_url" | grep -oP '"\K[^"\047]+(?=["\047])');
+while read repo; do
+	git clone $repo > /dev/null;
+done <<< "$git"
+cd ..
