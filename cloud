@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Find out what cloud service a host is running on.
+# Dependencies:
+# 	- whois
 
 if [[ $1 == "" ]]; then
 	echo "./cloud <host>";
