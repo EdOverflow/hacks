@@ -10,9 +10,9 @@ if [[ $1 == "" ]]; then
 	exit 1
 fi
 
-mkdir $1 && cd $1
-git=$(curl -s "https://api.github.com/orgs/$2/repos?per_page=200&type=source" | gron | fgrep "clone_url" | grep -oP '"\K[^"\047]+(?=["\047])');
-while read repo; do
-	git clone $repo > /dev/null;
+mkdir "$1" && cd "$1" || exit
+git=$(curl -s "https://api.github.com/orgs/$2/repos?per_page=200&type=source" | gron | grep -F "clone_url" | grep -oP '"\K[^"\047]+(?=["\047])');
+while read -r repo; do
+	git clone "$repo" > /dev/null;
 done <<< "$git"
 cd ..

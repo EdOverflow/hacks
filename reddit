@@ -20,15 +20,15 @@ self_results=$(curl -Ls "https://www.reddit.com/search?q=selftext%3A$1" -H "User
 echo
 echo -e "${BOLD}Hosts:${END}"
 echo "========================"
-echo $site_results | grep -Po '.*?//\K.*?(?=/)' | sort | uniq
+echo "$site_results" | grep -Po '.*?//\K.*?(?=/)' | sort | uniq
 
 echo
 echo -e "${BOLD}Links:${END}"
 echo "========================"
-echo $site_results | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
-echo $url_results | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
+echo "$site_results" | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
+echo "$url_results" | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
 
 echo
 echo -e "${BOLD}Self-posts:${END}"
 echo "========================"
-echo $self_results | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | grep "comments" | sort | uniq
+echo "$self_results" | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | grep "comments" | sort | uniq

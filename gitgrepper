@@ -22,6 +22,6 @@ fi
 echo
 echo "Keywords"
 echo "========"
-for word in ${keywords[@]}; do
+for word in "${keywords[@]}"; do
 	git log --reflog --pretty="format:- (%H) %b" | grep --color "$word"
 done

@@ -9,7 +9,7 @@ if [[ $1 == "" ]]; then
 	exit 1;
 fi
 
-ip=$(host $1 | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
-while read host; do
-	whois $host | grep OrgName | awk '{print $2, $3 , $4}'
+ip=$(host "$1" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
+while read -r host; do
+	whois "$host" | grep OrgName | awk '{print $2, $3 , $4}'
 done <<< "$ip"

@@ -9,8 +9,8 @@ if [[ $1 == "" ]]; then
 	exit 1;
 fi
 
-while read domain; do
+while read -r domain; do
     if curl -LIs "https://groups.google.com/a/$domain" | grep "overview" > /dev/null; then
         echo "[+] https://groups.google.com/a/$domain/forum/#!overview"
     fi
-done < $1
+done < "$1"

@@ -11,8 +11,8 @@ if [[ $1 == "" ]]; then
 	exit 1;
 fi
 
-while read b; do 
+while read -r b; do 
 	echo "=== $b ===";
-	aws s3 ls s3://$b;
+	aws s3 ls "s3://$b";
 	echo; 
-done < <(s3enum -w $1 -n $2)
+done < <(s3enum -w "$1" -n "$2")
