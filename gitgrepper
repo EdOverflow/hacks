@@ -2,6 +2,8 @@
 
 # Very light-weight GIT scraper that finds keywords in GIT logs.
 # Run this script as is inside of a GIT folder.
+# Dependencies:
+# 	- https://git-scm.com/
 
 keywords=(
 	"password"
