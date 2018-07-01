@@ -29,7 +29,7 @@ payloads=(
 )
 
 url=${1%/}
-for i in ${payloads[@]}; do
+for i in "${payloads[@]}"; do
 	if curl -LIs "$url/$i" | grep -iE '< location: (https?:)?[/\\]{2,}example.com'; then
 		echo "$url/$i"
 	fi
