@@ -15,9 +15,28 @@ Set-up one-liner
   This will clone this repository and then move all scripts to 
   /usr/local/bin.
 
-  	$ git clone git@github.com:EdOverflow/hacks.git \
-  		&& cp -R hacks/. /usr/local/bin/ \
-  		&& echo "You can delete the ./hacks/ folder now."
+    $ git clone git@github.com:EdOverflow/hacks.git \
+      && cp -R hacks/. /usr/local/bin/ \
+      && echo "You can delete the ./hacks/ folder now."
+
+Contributing
+
+  I welcome contributions from the public. The issue tracker is
+  the preferred channel for bug reports and feature requests. 
+  The bug tracker utilises several labels to help organise and 
+  identify issues. Whenever submitting a new issue, please use 
+  the GitHub issue search first — check if the issue has already 
+  been reported.
+
+  Make sure to run https://github.com/koalaman/shellcheck when you 
+  are done editing or create a shell script. This will help 
+  maintain clean and uniform code throughout the project.
+
+  If you would like to submit a patch via email, that is fine too.
+  Just run the following command and send the patch to contact 
+  [at] edoverflow [dot] com:
+
+    $ git format-patch -<n> <SHA1>
 
 Legal Disclaimer
 
